@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --mainColor: linear-gradient(to right, rgb(96, 55, 232), rgb(79, 79, 184));
+}
+
+.jobLine::after {
+  content: "";
+  position: absolute;
+  left: 65%;
+  top: 22px;
+  width: 7px;
+  height: 70%;
+  background-color: gray;
+}
+
+.moveIcon:hover svg {
+  transform: translateX(15px);
+}
+
+.imgAni {
+  animation: move 2.5s ease-in infinite alternate forwards;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+.icon {
+  background-image: linear-gradient(#ffffff, #ffffff);
+  background-size: 0% 0%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transition:
+    background-size 0.8s,
+    color 0.5s;
+}
+
+.icon:hover {
+  color: black;
+  background-size: 100% 100%;
+}
+
+button {
+  position: relative;
+  z-index: 1;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: white;
+  top: 0;
+  left: 0;
+  transition: width 0.8s;
+  z-index: -1;
+}
+
+button:hover::after {
+  width: 100%;
+}
+
+.skillItem svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.skillItem circle {
+  fill: none;
+  stroke: url(#circleGradient);
+  stroke-dashoffset: 200px;
+  stroke-dasharray: 450px;
+  stroke-width: 10px;
+  stroke-linecap: round;
+}
